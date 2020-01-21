@@ -2,6 +2,21 @@
   "name": "@intocode-io/react-electron-boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate to build Electron and React application",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intocode-io/react-electron-boilerplate.git"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "boilerplate"
+  ],
+  "author": "intocode Co., Ltd.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/intocode-io/react-electron-boilerplate/issues"
+  },
+  "homepage": "https://github.com/intocode-io/react-electron-boilerplate#readme",
   "main": "src/electron.js",
   "scripts": {
     "build": "npm run clean && npm run build:react && npm run build:electron",
@@ -27,21 +42,10 @@
       "dist/**/*"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/intocode-io/react-electron-boilerplate.git"
+  "alias": {
+    "react": "preact-compat",
+    "react-dom": "preact-compat"
   },
-  "keywords": [
-    "electron",
-    "react",
-    "boilerplate"
-  ],
-  "author": "intocode Co., Ltd.",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/intocode-io/react-electron-boilerplate/issues"
-  },
-  "homepage": "https://github.com/intocode-io/react-electron-boilerplate#readme",
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
@@ -69,7 +73,6 @@
     "prettier": "^1.19.1",
     "react-hot-loader": "^4.12.18",
     "rimraf": "^3.0.0",
-    "spectron": "^9.0.0",
     "wait-on": "^4.0.0"
   },
   "dependencies": {
@@ -79,9 +82,5 @@
     "preact-compat": "^3.19.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
-  },
-  "alias": {
-    "react": "preact-compat",
-    "react-dom": "preact-compat"
   }
 }
