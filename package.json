@@ -1,0 +1,87 @@
+{
+  "name": "@intocode-io/react-electron-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate to build Electron and React application",
+  "main": "src/electron.js",
+  "scripts": {
+    "build": "npm run clean && npm run build:react && npm run build:electron",
+    "build:electron": "electron-builder build --win portable",
+    "build:react": "cross-env NODE_ENV=production parcel build app/index.html",
+    "clean": "rimraf .cache .parcel-cache dist build",
+    "dev": "concurrently npm:serve:react npm:serve:electron",
+    "format": "prettier --end-of-line lf --write \"{app/*,src/*}\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "postinstall": "electron-builder install-app-deps",
+    "serve:electron": "wait-on http://localhost:1234 && electron .",
+    "serve:react": "cross-env BROWSER=none parcel serve -p 1234 app/index.html",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "build": {
+    "appId": "io.intocode.react-electron-boilerplate",
+    "productName ": "ReactElectronBoilerplate",
+    "files": [
+      "src/electron.js",
+      "dist/**/*"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intocode-io/react-electron-boilerplate.git"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "boilerplate"
+  ],
+  "author": "intocode Co., Ltd.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/intocode-io/react-electron-boilerplate/issues"
+  },
+  "homepage": "https://github.com/intocode-io/react-electron-boilerplate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "autoprefixer": "^9.7.4",
+    "concurrently": "^5.0.2",
+    "cross-env": "^6.0.3",
+    "electron": "^7.1.9",
+    "electron-builder": "^22.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-compat": "^3.3.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "parcel": "^2.0.0-alpha.3.2",
+    "postcss-modules": "^1.5.0",
+    "prettier": "^1.19.1",
+    "react-hot-loader": "^4.12.18",
+    "rimraf": "^3.0.0",
+    "spectron": "^9.0.0",
+    "wait-on": "^4.0.0"
+  },
+  "dependencies": {
+    "electron-debug": "^3.0.1",
+    "electron-is-dev": "^1.1.0",
+    "preact": "^8.5.3",
+    "preact-compat": "^3.19.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "alias": {
+    "react": "preact-compat",
+    "react-dom": "preact-compat"
+  }
+}
